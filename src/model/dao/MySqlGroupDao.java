@@ -15,7 +15,7 @@ public class MySqlGroupDao implements GroupDao {
 	private static final String LOAD_ALL_GROUPS_QUERY = "SELECT * FROM user_group";
 	private static final String LOAD_BY_ID_QUERY = "SELECT * FROM user_group WHERE id = ?";
 	private static final String DELETE_BY_ID_QUERY = "DELETE FROM user_group WHERE ID = ?";
-	private static final String SAVE_TO_DB_QUERY = "INSERT INTO user_group(id, name) VALUES(?, ?)";
+	private static final String SAVE_TO_DB_QUERY = "INSERT INTO user_group(name) VALUES(?)";
 	private static final String UPDATE_GROUP_QUERY = "UPDATE user_group SET name = ? WHERE id = ?"; 
 	
 	private final String jdbcUrl;
@@ -96,8 +96,8 @@ public class MySqlGroupDao implements GroupDao {
 	public void saveToDB(Group group) {
 		try (Connection connection = createConnection();
 				PreparedStatement saveToDbStm = connection.prepareStatement(SAVE_TO_DB_QUERY);) {
-			saveToDbStm.setInt(1, group.getId());
-			saveToDbStm.setString(2, group.getName());
+			//saveToDbStm.setInt(1, group.getId());
+			saveToDbStm.setString(1, group.getName());
 
 			saveToDbStm.executeUpdate();
 		} catch (SQLException e) {
