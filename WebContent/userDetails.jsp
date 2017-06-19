@@ -5,32 +5,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>User Details</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/Warsztaty_3-Servlety/css/styles.css" />
 </head>
 <body>
 	<div>
 		<%@	include file="header.jsp"%>
 	</div>
-	<div>
-		<p>DETAILS OF USER: ${user.name}</p>
-		Nazwisko: ${user.surname} Email: ${user.email}
-	</div>
-	<div>
-		<table>
-			<c:forEach var="sl" items="${solutionsList}">
-				<tr>
-					<th>${sl.description}</th>
-					<th>${sl.created}</th>
-					<th><a href="solutionById?id=<c:out value="${sl.id}"/>&groupId=<c:out value="${groupId}"/>&userId=<c:out value="${user.id}"/>">Details</a>
-				</tr>
-			</c:forEach>
-		</table>
+	<div class="wrapper">
+		<div class="title">
+			<h1>
+				Details of <b>${user.name}</b>
+			</h1>
+		</div>
+		
+		<div class="list_1">
+			ID:<br /> 
+			NAME:<br /> 
+			SURNAME:<br /> 
+			EMAIL:<br /> 
+			PASSWORD:<br /> 
+			GROUP ID:<br />
+		</div>
+		<div class="list_2">
+			${user.id}<br /> 
+			${user.name}<br />
+			${user.surname}<br /> 
+			${user.email}<br />
+			${user.password}<br />
+			${user.person_group_id}<br />
+		</div>
 
+
+
+		<div class="back_button">
+			<a
+				href="http://localhost:8080/Warsztaty_3-Servlety/usersShort?groupId=<c:out value="${groupId}"/>" class="btn btn-default" role="button">Back</a>
+		</div>
 	</div>
-	<p><p>
-		<a
-			href="http://localhost:8080/Warsztaty_3-Servlety/usersShort?groupId=<c:out value="${groupId}"/>">back</a>
-	</p>
 
 
 </body>

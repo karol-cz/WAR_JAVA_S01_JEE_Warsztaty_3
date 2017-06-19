@@ -9,19 +9,41 @@
 </head>
 <body>
 
-	
-	<div>
-		<%@	include file="header.jsp"%>
+<div>
+		<%@	include file="headerAdminPanel.jsp"%>
 	</div>
-	<div>
-	
-		<form action="groupsAdminPanelEditSubmit" method="post">
-			<input type="text" name="id" value="<c:out value="${groupId}"/>" readonly>
-			<input type="text" name="name" placeholder="Name">
-			<input type="submit" value="Zatwierdź">
+	<div class="wrapper">
+		<div class="title">
+			<h1>Group edit</h1>
+		</div>
+		<form class="form-horizontal" action="groupsAdminPanelEditSubmit" method="post">
+
+			<div class="form-group">
+				<label class="control-label col-sm-2">id:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="id" value="<c:out value="${groupId}"/>" readonly>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2">title:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="name" placeholder="Enter name">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-8">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+
 		</form>
 
 	</div>
+	
+	
 
 </body>
 </html>
+

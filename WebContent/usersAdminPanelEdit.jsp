@@ -10,27 +10,70 @@
 <body>
 
 	<div>
-		<%@	include file="header.jsp"%>
+		<%@	include file="headerAdminPanel.jsp"%>
 	</div>
-	<div>
-	
-		<form action="usersAdminPanelEditSubmit" method="post">
-			<input type="text" name="id" value="<c:out value="${userId}"/>" readonly>
-			<input type="text" name="name" placeholder="Name">
-			<input type="text" name="surname" placeholder="Surname">
-			<input type="text" name="email" placeholder="Email">
-			<input type="text" name="password" placeholder="Password">
-			<select name="person_group_id">
-			<c:forEach var="u" items="${groups}">
-				<option value="${u.id}">Group ID: ${u.id}</option>
-			
-			</c:forEach>
-			</select>
-			
-			<input type="submit" value="Zatwierdź">
-		</form>
+	<div class="wrapper">
+		<div class="title">
+			<h1>Create new User</h1>
+		</div>
+		<form class="form-horizontal" action="usersAdminPanelEditSubmit" method="post">
+		
+			<div class="form-group">
+				<label class="control-label col-sm-2">title:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="id" value="<c:out value="${userId}"/>" readonly>
+				</div>
+			</div>
 
-	</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">name:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="name" placeholder="Enter name">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2">surname:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="surname" placeholder="Enter surname">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2">email:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="email" placeholder="Enter email">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2">password</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="password" name="password" placeholder="Enter password">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2">group id:</label>
+				<div class="col-sm-6">
+					<select class="form-control" name="person_group_id">
+						<c:forEach var="g" items="${groups}">
+							<option value="${g.id}">${g.id}, ${g.name}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-8">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+
+		</form>
+	
+
 
 </body>
 </html>

@@ -10,38 +10,46 @@
 <body>
 
 	<div>
-		<%@	include file="header.jsp"%>
+		<%@	include file="headerAdminPanel.jsp"%>
 	</div>
-	<div>
-		<a href="http://localhost:8080/Warsztaty_3-Servlety/usersAdminPanelAddNew">+ Add new User</a>
+	
+	<div class="wrapper">
+		<div class="title">
+			<h1>List of all Users</h1>
+		</div>
+		<div>
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/usersAdminPanelAddNew" class="btn btn-default" role="button">+ Add new User</a>
+		</div>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<th>id</th>
+					<th>name</th>
+					<th>surname</th>
+					<th>email</th>
+					<th>group id</th>
+					<th></th>
+					</tr>
+				<tbody>
+					<c:forEach var="u" items="${users}">
+						<tr>
+							<td>${u.id}</td>
+							<td>${u.name}</td>
+							<td>${u.surname}</td>
+							<td>${u.email}</td>
+							<td>${u.person_group_id}</td>
+							<td><a href="usersAdminPanelEdit?id=<c:out value="${u.id}"/>" class="btn btn-default" role="button">Edit</a>
+								<a href="usersAdminPanelDelete?id=<c:out value="${u.id}"/>" class="btn btn-default" role="button">Delete</a>
+								</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
+		<div>											
 	</div>
-	<div>
-		USERS LIST:
-		<table>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Surname</th>
-				<th>Email</th>
-				<th>Group ID</th>
-			</tr>
-		</table>
 
-		<table>
-			<c:forEach var="u" items="${users}">
-				<tr>
-					<th>${u.id}</th>
-					<th>${u.name}</th>
-					<th>${u.surname}</th>
-					<th>${u.email}</th>
-					<th>${u.person_group_id}</th>
-					<th><a href="usersAdminPanelEdit?id=<c:out value="${u.id}"/>">Edit</a>
-					<th><a href="usersAdminPanelDelete?id=<c:out value="${u.id}"/>">Delete</a>
-				</tr>
-			</c:forEach>
-		</table>
-
-	</div>
-
+	
 </body>
 </html>

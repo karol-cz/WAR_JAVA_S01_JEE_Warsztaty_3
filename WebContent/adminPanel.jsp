@@ -5,24 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/Warsztaty_3-Servlety/css/styles.css" />
 <title>Insert title here</title>
 </head>
 <body>
 
 	<div>
-		<%@	include file="header.jsp"%>
+		<%@	include file="headerAdminPanel.jsp"%>
 	</div>
-
-	<p>
-		<a href="http://localhost:8080/Warsztaty_3-Servlety/exercisesAdminPanel">Zadania</a>
-	</p>
-	<p>
-		<a href="http://localhost:8080/Warsztaty_3-Servlety/groupsAdminPanel">Grupy</a>
-	</p>
-	<p>
-		<a href="http://localhost:8080/Warsztaty_3-Servlety/usersAdminPanel">Użytkownnicy</a>
-	</p>
-
-
 </body>
 </html>

@@ -10,32 +10,41 @@
 <body>
 
 	<div>
-		<%@	include file="header.jsp"%>
+		<%@	include file="headerAdminPanel.jsp"%>
 	</div>
-	<div>
-		<a href="http://localhost:8080/Warsztaty_3-Servlety/groupsAdminPanelAddNew">+ Add new Group</a>
+	
+	<div class="wrapper">
+		<div class="title">
+			<h1>List of all Groups</h1>
+		</div>
+		<div>
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/groupsAdminPanelAddNew" class="btn btn-default" role="button">+ Add new Group</a>
+		</div>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<th>id</th>
+					<th>name</th>
+					<th></th>
+					</tr>
+				<tbody>
+					<c:forEach var="g" items="${groups}">
+						<tr>
+							<td>${g.id}</td>
+							<td>${g.name}</td>
+							<td><a href="groupsAdminPanelEdit?id=<c:out value="${g.id}"/>" class="btn btn-default" role="button">Edit</a>
+								<a href="groupsAdminPanelDelete?id=<c:out value="${g.id}"/>"class="btn btn-default" role="button">Delete</a>
+								</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
+		<div>											
 	</div>
-	<div>
-		USERS LIST:
-		<table>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-			</tr>
-		</table>
 
-		<table>
-			<c:forEach var="g" items="${groups}">
-				<tr>
-					<th>${g.id}</th>
-					<th>${g.name}</th>
-					<th><a href="groupsAdminPanelEdit?id=<c:out value="${g.id}"/>">Edit</a></th>
-					<th><a href="groupsAdminPanelDelete?id=<c:out value="${g.id}"/>">Delete</a></th>
-				</tr>
-			</c:forEach>
-		</table>
-
-	</div>
+	
 
 </body>
 </html>

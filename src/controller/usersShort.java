@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.MySqlSolutionDao;
+import model.dao.GroupDao;
+import model.dao.MySqlGroupDao;
 import model.dao.MySqlUserDao;
-import model.dao.SolutionDao;
 import model.dao.UserDao;
-import model.entity.Solution;
 import model.entity.User;
 import model.utils.Utils;
 
@@ -32,6 +31,12 @@ public class usersShort extends HttpServlet {
 		
 		request.setAttribute("users", users);
 		request.setAttribute("groupId", groupId);
+		
+		GroupDao groupDao = new MySqlGroupDao(Utils.DB_URL, Utils.USER, Utils.PASSWORD);
+		
+		String groupName = groupDao.loadById(groupId).getName();
+		request.setAttribute("groupName", groupName);
+		
 		
 		getServletContext().getRequestDispatcher("/usersShort.jsp").forward(request, response);
 //		//response.getWriter().append("Served at: ").append(request.getContextPath());

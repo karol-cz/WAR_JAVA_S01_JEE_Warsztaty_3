@@ -16,10 +16,15 @@
 			<a href="http://localhost:8080/Warsztaty_3-Servlety/welcome"
 				class="btn_navBar" role="button">Home</a>
 			<a href="http://localhost:8080/Warsztaty_3-Servlety/panel"
-				class="btn_navBar" role="button">Admin Panel</a>
-			<a href="http://localhost:8080/Warsztaty_3-Servlety/groups"
-				class="btn_navBar" role="button">Groups</a>
+				class="btn_navBarAdminPanelButton" role="button">Admin Panel</a>
 		</div>
+		<div class="navBarDiv2">
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/exercisesAdminPanel" class="btn_navBarAdmin" role="button">Exercises</a>
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/solutionsAdminPanel" class="btn_navBarAdmin" role="button">Solutions</a>
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/usersAdminPanel" class="btn_navBarAdmin" role="button">Users</a>
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/groupsAdminPanel" class="btn_navBarAdmin" role="button">Groups</a>
+		</div>
+		
 	</div>
 </body>
 </html>

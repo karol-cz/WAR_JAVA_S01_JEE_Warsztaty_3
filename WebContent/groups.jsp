@@ -5,23 +5,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/Warsztaty_3-Servlety/css/styles.css" />
+<title>Groups</title>
 </head>
 <body>
 	<div>
 
 		<%@	include file="header.jsp"%>
 	</div>
-	<div>
-		GROUP LIST:
-		<table>
-			<c:forEach var="g" items="${groups}">
-				<tr>
-					<th>${g.name}</th>
-					<th><a href="usersShort?groupId=<c:out value="${g.id}"/>">Details</a>
-				</tr>
-			</c:forEach>
-		</table>
+
+	<div class="wrapper">
+		<div class="title">
+			<h1>List of all groups</h1>
+		</div>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<th>name</th>
+					<th></th>
+					</tr>
+				<tbody>
+					<c:forEach var="g" items="${groups}">
+						<tr>
+							<td>${g.name}</td>
+							<td><a href="usersShort?groupId=<c:out value="${g.id}"/>"
+								class="btn btn-default" role="button">Details</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 

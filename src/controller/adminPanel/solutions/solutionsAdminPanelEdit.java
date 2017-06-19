@@ -1,4 +1,4 @@
-package controller;
+package controller.adminPanel.solutions;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,29 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.ExerciseDao;
 import model.dao.MySqlExerciseDao;
-import model.dao.MySqlSolutionDao;
 import model.dao.MySqlUserDao;
-import model.dao.SolutionDao;
 import model.dao.UserDao;
 import model.entity.Exercise;
-import model.entity.Solution;
 import model.entity.User;
 import model.utils.Utils;
 
 /**
- * Servlet implementation class servlet1
+ * Servlet implementation class groupsAdminPanelEdit
  */
-@WebServlet("/welcome")
-public class welcome extends HttpServlet {
+@WebServlet("/solutionsAdminPanelEdit")
+public class solutionsAdminPanelEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		SolutionDao solutionDao = new MySqlSolutionDao(Utils.DB_URL, Utils.USER, Utils.PASSWORD);
-		int numberOfRows = Integer.parseInt(getServletContext().getInitParameter("numberOfRows"));
-		
-		ArrayList<Solution> list = (ArrayList<Solution>) solutionDao.loadAll(numberOfRows);
-		request.setAttribute("list", list);
-		request.setAttribute("numberOfRows", numberOfRows);
+		int solutionId = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("solutionId", solutionId);
 		
 		ExerciseDao exerciseDao = new MySqlExerciseDao(Utils.DB_URL, Utils.USER, Utils.PASSWORD);
 		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseDao.loadAll();
@@ -43,9 +37,13 @@ public class welcome extends HttpServlet {
 		ArrayList<User> users = (ArrayList<User>) userDao.findAll();
 		request.setAttribute("users", users);
 		
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		
+		getServletContext().getRequestDispatcher("/solutionsAdminPanelEdit.jsp").forward(request, response);
+		
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+
 }

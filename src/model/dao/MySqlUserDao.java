@@ -168,7 +168,6 @@ public class MySqlUserDao implements UserDao {
 					user.setEmail(resultloadAllByGroupStm.getString(4));
 					user.setPassword(resultloadAllByGroupStm.getString(5));
 					user.setPerson_group_id(resultloadAllByGroupStm.getInt(6));
-					System.out.println("i am inside");
 					allUsers.add(user);
 				}
 				return allUsers;

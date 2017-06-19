@@ -9,16 +9,42 @@
 </head>
 <body>
 
-<div>
-		<%@	include file="header.jsp"%>
-	</div>
 	<div>
-	
-		<form action="exercisesAdminPanelEditSubmit" method="post">
-			<input type="text" name="id" value="<c:out value="${exerciseId}"/>" readonly>
-			<input type="text" name="title" placeholder="Title">
-			<input type="text" name="description" placeholder="Description">
-			<input type="submit" value="Zatwierdź">
+		<%@	include file="headerAdminPanel.jsp"%>
+	</div>
+	<div class="wrapper">
+		<div class="title">
+			<h1>Edit Exercise</h1>
+		</div>
+		<form class="form-horizontal" action="exercisesAdminPanelEditSubmit" method="post">
+		
+			<div class="form-group">
+				<label class="control-label col-sm-2">id:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="id" value="<c:out value="${exerciseId}"/>" readonly>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2">title:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="title" placeholder="Enter title">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2">description:</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" name="description" placeholder="Enter description">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-8">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+
 		</form>
 
 	</div>

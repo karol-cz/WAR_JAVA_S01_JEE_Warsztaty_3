@@ -9,33 +9,40 @@
 </head>
 <body>
 
+	
 	<div>
 		<%@	include file="headerAdminPanel.jsp"%>
 	</div>
 	
 	<div class="wrapper">
 		<div class="title">
-			<h1>List of all Exercises</h1>
+			<h1>List of all Solutions</h1>
 		</div>
 		<div>
-			<a href="http://localhost:8080/Warsztaty_3-Servlety/exercisesAdminPanelAddNew" class="btn btn-default" role="button">+ Add new Exercise</a>
+			<a href="http://localhost:8080/Warsztaty_3-Servlety/solutionsAdminPanelAddNew" class="btn btn-default" role="button">+ Add new Solution</a>
 		</div>
 		<div class="table-responsive">
-			<table class="table"  >
+			<table class="table">
 				<thead>
 					<th>id</th>
-					<th>title</th>
+					<th>created</th>
+					<th>updated</th>
 					<th>description</th>
+					<th>exercise id</th>
+					<th>user id</th>
 					<th></th>
 					</tr>
 				<tbody>
-					<c:forEach var="e" items="${exercises}">
+					<c:forEach var="s" items="${solutions}">
 						<tr>
-							<td> ${e.id}</td>
-							<td>${e.title}</td>
-							<td>${e.description}</td>
-							<td><a href="exercisesAdminPanelEdit?id=<c:out value="${e.id}"/>" class="btn btn-default" role="button">Edit</a>
-								<a href="exercisesAdminPanelDelete?id=<c:out value="${e.id}"/>"class="btn btn-default" role="button">Delete</a>
+							<td>${s.id}</td>
+							<td>${s.created}</td>
+							<td>${s.updated}</td>
+							<td>${s.description}</td>
+							<td>${s.exercise_id}</td>
+							<td>${s.users_id}</td>
+							<td><a href="solutionsAdminPanelEdit?id=<c:out value="${s.id}"/>" class="btn btn-default" role="button">Edit</a>
+								<a href="solutionsAdminPanelDelete?id=<c:out value="${s.id}"/>" class="btn btn-default" role="button">Delete</a>
 								</td>
 						</tr>
 					</c:forEach>
@@ -46,10 +53,8 @@
 		<div>											
 	</div>
 	
-	
+
 	
 
 </body>
 </html>
-
-
